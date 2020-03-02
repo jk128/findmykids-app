@@ -1,16 +1,16 @@
-package com.example.googlemapdemo;
+package com.example.googlemapdemo.views;
 
 import android.os.Bundle;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.googlemapdemo.R;
+import com.example.googlemapdemo.viewmodels.ChildCoordinates;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -19,45 +19,16 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-
 import org.json.JSONObject;
-
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
-
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback,
         GoogleMap.OnMapClickListener {
-    private class Location {
-        public String ReportID = UUID.randomUUID().toString();
-        public String Origin = UUID.randomUUID().toString();
-        public Double Latitude = 0.0;
-        public Double Longitude = 0.0;
-        public String MemberID = "875ea426-6317-4945-8dbf-b775fb3e9287";
-
-        /*@Override
-        public String toString() {
-            JSONObject jsonObject= new JSONObject();
-
-            try {
-                jsonObject.put("ReportID", ReportID);
-                jsonObject.put("Origin", Origin);
-                jsonObject.put("Latitude", Latitude);
-                jsonObject.put("Longitude", Longitude);
-                jsonObject.put("MemberID", MemberID);
-                return jsonObject.toString();
-            } catch (JSONException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-                return "";
-            }
-        }*/
-    }
 
     private GoogleMap mMap;
     private RequestQueue mQueue;
-    private Location loc = new Location();
+    private ChildCoordinates  childCoordinates = new ChildCoordinates();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,8 +64,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             marker.remove();
         }
 
-        loc.Latitude = latLng.latitude;
-        loc.Longitude = latLng.longitude;
+        childCoordinates.setLatitude(latLng.latitude);
+        childCoordinates.setLongitude(latLng.longitude);
 
         //Add marker on Click position
         MarkerOptions markerOptions =
@@ -111,13 +82,12 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     private  void SendData() {
         String url = "http://192.168.1.103:5002/api/members/875ea426-6317-4945-8dbf-b775fb3e9287/locationreports";
-
         Map<String, String> params = new HashMap<>();
-        params.put("ReportID", loc.ReportID);
-        params.put("Origin", loc.Origin);
-        params.put("Latitude", loc.Latitude.toString());
-        params.put("Longitude", loc.Longitude.toString());
-        params.put("MemberID", loc.MemberID);
+        params.put("ReportID", childCoordinates.getReportID());
+        params.put("Origin", childCoordinates.getOrigin());
+        params.put("Latitude", childCoordinates.getLatitude().toString());
+        params.put("Longitude", childCoordinates.getLongitude().toString());
+        params.put("MemberID", childCoordinates.getMemberID());
 
         JSONObject parameters = new JSONObject(params);
 

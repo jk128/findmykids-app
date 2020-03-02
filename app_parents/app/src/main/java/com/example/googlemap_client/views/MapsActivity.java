@@ -1,4 +1,4 @@
-package com.example.googlemap_client;
+package com.example.googlemap_client.views;
 
 import androidx.fragment.app.FragmentActivity;
 
@@ -10,6 +10,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.googlemap_client.R;
+import com.example.googlemap_client.viewmodels.LocationViewModel;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -27,9 +29,10 @@ import java.util.TimerTask;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
     private GoogleMap mMap;
     private RequestQueue mQueue;
-    Double x = 0.0;
-    Double y = 0.0;
-    LatLng myPosition = new LatLng(x,y);
+    LocationViewModel locationViewModel = new LocationViewModel();
+    LatLng myPosition = new LatLng(locationViewModel.getLocation().getLongitude(),
+                                    locationViewModel.getLocation().getLatitude());
+
     String name = "Lê Tuấn Anh";
 
     private Timer myTimer;
@@ -57,7 +60,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private Runnable Timer_Tick = new Runnable() {
         public void run() {
-            RealTimePostion();
+            RealTimePosition();
         }
     };
 
@@ -78,10 +81,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.setMaxZoomPreference(2000f);
 
         // Set position init
-        RealTimePostion();
+        RealTimePosition();
     }
 
-    private void RealTimePostion() {
+    private void RealTimePosition() {
         jsonParse();
 
         mMap.addMarker(new MarkerOptions().position(myPosition).title(name).icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_panda)));
@@ -96,9 +99,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     public  void onResponse(JSONObject response) {
                         try {
                             JSONObject jsonObject = response.getJSONObject("location");
-                            x = Double.parseDouble(jsonObject.getString("latitude"));
-                            y = Double.parseDouble(jsonObject.getString("longitude"));
-                            myPosition = new LatLng(x, y);
+                            locationViewModel.setLocation(Double.parseDouble(jsonObject.getString("latitude")),
+                                    Double.parseDouble(jsonObject.getString("longitude")) );
+                            myPosition = new LatLng(locationViewModel.getLocation().getLongitude(), locationViewModel.getLocation().getLatitude());
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
