@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:weightSum="5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_weight="2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp" >
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@mipmap/ic_background_foreground"
+                android:contentDescription="@string/background"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_weight="2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/activity_vertical_margin"
+            android:layout_marginRight="@dimen/activity_vertical_margin">
+
+            <EditText
+                android:id="@+id/txtUserNameLogin"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/default_element_height"
+                android:autofillHints="@string/txtUserNameLogin"
+                android:ems="10"
+                android:fontFamily="sans-serif"
+                android:hint="@string/txtUserNameLogin"
+                android:inputType="textPersonName"
+                android:textSize="@dimen/font_size_default" />
+
+            <EditText
+                android:id="@+id/txtPassWordLogin"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/default_element_height"
+                android:autofillHints="@string/txtPassWordLogin"
+                android:ems="10"
+                android:fontFamily="@string/font_family"
+                android:hint="@string/txtPassWordLogin"
+                android:inputType="textPassword"
+                android:textSize="@dimen/font_size_default" />
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#2196F3"
+                android:fontFamily="sans-serif"
+                android:text="@string/btnLogin"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="@dimen/font_size_default" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.constraintlayout.widget.ConstraintLayout>

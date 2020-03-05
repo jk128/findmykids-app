@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">findmykids-app-children</string>
+    <string name="map_api_key">AIzaSyDuDvfz2t2JngUJCd1H2rPGEuV9KW6O7kU</string>
+    <string name="textview">TextView</string>
+    <string name="font_family">sans-serif</string>
+</resources>
