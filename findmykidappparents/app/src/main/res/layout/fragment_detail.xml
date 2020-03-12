@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.detail.DetailFragment"
+    >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <ImageView
+            android:id="@+id/imgMyLocation"
+            android:layout_width="60dp"
+            android:layout_gravity="end|bottom"
+
+            android:layout_height="60dp"
+            android:contentDescription="@string/background"
+            android:src="@mipmap/ic_mylocation_foreground"
+            android:background="@drawable/rounded_image"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="210dp"
+            />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:background="@drawable/rounded_image"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="end|bottom"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="130dp"
+            android:contentDescription="@string/background"
+            android:src="@mipmap/ic_history_foreground" />
+
+        <ImageView
+            android:id="@+id/imgListBack"
+            android:background="@drawable/rounded_image"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="end|bottom"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="50dp"
+            android:contentDescription="@string/background"
+            android:src="@mipmap/ic_addlocation_foreground" />
+
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
