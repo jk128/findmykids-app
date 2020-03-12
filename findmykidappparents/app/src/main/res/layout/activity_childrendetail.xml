@@ -6,12 +6,13 @@
     <data>
         <variable
             name="viewModelChildrenDetail"
-            type="com.example.findmykidappparents.viewmodels.ChildrenDetailViewModel"/>
+            type="com.example.findmykidappparents.ui.home.ChildrenDetailViewModel"/>
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".ui.demo.ChildrenDetail">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -59,7 +60,7 @@
             android:layout_marginRight="10dp"
             android:layout_marginBottom="50dp"
             android:contentDescription="@string/background"
-            android:src="@mipmap/ic_list_foreground" />
+            android:src="@mipmap/ic_addlocation_foreground" />
 
     </FrameLayout>
 
