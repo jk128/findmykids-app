@@ -13,10 +13,14 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.findmykidappparents.R;
+import com.example.findmykidappparents.sessions.SessionManager;
 
 public class SlideshowFragment extends Fragment {
 
     private SlideshowViewModel slideshowViewModel;
+
+    // Session Manager Class
+    SessionManager session;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -30,6 +34,10 @@ public class SlideshowFragment extends Fragment {
                 textView.setText(s);
             }
         });
+
+        session = new SessionManager(root.getContext());
+        session.logoutUser();
+
         return root;
     }
 }

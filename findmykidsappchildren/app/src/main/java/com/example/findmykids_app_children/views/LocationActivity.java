@@ -61,10 +61,10 @@ public class LocationActivity extends AppCompatActivity implements OnMapReadyCal
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
-        mMap.setOnMapClickListener(this);
-        mMap.addMarker(new MarkerOptions().position(locationViewModel.GetLatLng()).title("Marker in Sydney")
-                .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_location_foreground)));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(locationViewModel.GetLatLng(),15));
+//        mMap = googleMap;
+//        mMap.setOnMapClickListener(this);
+//        mMap.addMarker(new MarkerOptions().position(locationViewModel.GetLatLng()).title("Marker in Sydney")
+//                .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_location_foreground)));
+//        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(locationViewModel.GetLatLng(),15));
     }
 }

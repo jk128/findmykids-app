@@ -2,6 +2,8 @@ package com.example.findmykidappparents;
 
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.findmykidappparents.sessions.AlertDialogManager;
@@ -28,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
     // Session Manager Class
     SessionManager session;
 
+    TextView txtName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
+        View headerLayout =
+                navigationView.inflateHeaderView(R.layout.nav_header_main);
+        txtName = headerLayout.findViewById(R.id.name);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
@@ -50,8 +57,6 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-
-        Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
 
         /**
          * Call this function whenever you want to check user login
@@ -66,10 +71,11 @@ public class MainActivity extends AppCompatActivity {
         HashMap<String, String> user = session.getUserDetails();
 
         // name
-        String name = user.get(SessionManager.KEY_NAME);
+        txtName.setText(user.get(SessionManager.KEY_NAME));
 
         // email
-        String email = user.get(SessionManager.KEY_EMAIL);
+//        String email = "";
+//        String email = user.get(SessionManager.KEY_EMAIL);
     }
 
     @Override

@@ -21,7 +21,6 @@
             android:id="@+id/imgMyLocation"
             android:layout_width="60dp"
             android:layout_gravity="end|bottom"
-
             android:layout_height="60dp"
             android:contentDescription="@string/background"
             android:src="@mipmap/ic_mylocation_foreground"

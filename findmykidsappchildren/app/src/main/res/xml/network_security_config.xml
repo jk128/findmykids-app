@@ -2,7 +2,7 @@
 <network-security-config>
     <base-config cleartextTrafficPermitted="true" />
     <domain-config cleartextTrafficPermitted="true">
-        <domain includeSubdomains="true">http://192.168.1.101:5001</domain>
-        <domain includeSubdomains="true">http://192.168.1.101:5004</domain>
+        <domain includeSubdomains="true">http://localhost:5000</domain>
+        <domain includeSubdomains="true">http://192.168.1.101:5002</domain>
     </domain-config>
 </network-security-config>
