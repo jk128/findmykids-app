@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/childrenLayout"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardChildren"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/mtrl_card_spacing"
+        android:clickable="true"
+        android:focusable="true"
+        android:minHeight="@dimen/cat_card_rich_media_demo_min_height">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <com.thesis.findmykidsparents.utils.CustomMap
+                    android:id="@+id/lite_listrow_map"
+                    android:layout_width="fill_parent"
+                    android:layout_height="194dp"
+                    map:liteMode="true"
+                    map:mapType="normal" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/cat_card_double_spacing"
+                >
+
+                <TextView
+                    android:id="@+id/childrenName"
+                    style="?attr/textAppearanceHeadline5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="@string/cat_card_rich_media_view_title" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/cat_card_single_spacing"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnViewDetail"
+                    style="?attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/cat_card_single_spacing"
+                    android:layout_marginRight="@dimen/cat_card_single_spacing"
+                    android:text="@string/cat_card_rich_media_action_1" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+</LinearLayout>

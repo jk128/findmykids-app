@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/detail_activity"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <fragment
+        android:id="@+id/mapDetail"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ImageView
+        android:id="@+id/btn_my_location"
+        android:layout_width="40dp"
+        android:layout_gravity="end|bottom"
+        android:layout_height="40dp"
+        android:contentDescription="@string/cat_login"
+        android:src="@drawable/baseline_my_location_24"
+        android:background="@drawable/rounded_image"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="120dp" />
+
+    <ImageView
+        android:id="@+id/btn_my_history"
+        android:layout_width="40dp"
+        android:layout_gravity="end|bottom"
+        android:layout_height="40dp"
+        android:contentDescription="@string/cat_login"
+        android:src="@drawable/baseline_history_24"
+        android:background="@drawable/rounded_image"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="70dp" />
+</FrameLayout>

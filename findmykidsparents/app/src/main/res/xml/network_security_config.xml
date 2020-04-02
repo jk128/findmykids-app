@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true" />
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">http://192.168.1.101:5001</domain>
+        <domain includeSubdomains="true">http://192.168.1.101</domain>
+        <domain includeSubdomains="true">http://192.168.1.101:5004</domain>
+        <domain includeSubdomains="true">http://18.136.123.250:5000</domain>
+        <domain includeSubdomains="true">http://54.169.14.7:5000</domain>
+        <domain includeSubdomains="true">http://18.140.69.181:5000</domain>
+    </domain-config>
+</network-security-config>

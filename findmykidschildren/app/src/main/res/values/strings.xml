@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">findmykidschildren</string>
+
+    <string name="activity_main">Màn hình chính</string>
+    <string name="activity_connect">Kết nối</string>
+    <string name="process">Đang xử lý...</string>
+    <string name="errorString">Đã có lỗi sảy ra, xin vui lòng thử lại.</string>
+
+    <string name="cat_textfield_password" translatable="false">Mật khẩu</string>
+    <string name="cat_textfield_email" translatable="false">Email</string>
+    <string name="cat_textfield_name" translatable="false">Tên Ba/Mẹ</string>
+    <string name="required_email_error" translatable="false">Email bắt buộc nhập</string>
+    <string name="valid_email_error" translatable="false">Email không đúng định dạng</string>
+    <string name="required_name_error" translatable="false">Tên Ba/Mẹ bắt buộc nhập</string>
+    <string name="required_password_error" translatable="false">Mật khẩu bắt buộc nhập</string>
+    <string name="cat_login" translatable="false">Kết nối</string>
+    <string name="network_error">No network connection.</string>
+
+    <string name="ok">Đồng ý</string>
+    <string name="cancel">Hủy</string>
+    <string name="myLocationInit">myLocationInit</string>
+</resources>

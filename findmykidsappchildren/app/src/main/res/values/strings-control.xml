@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="lblTitleLogin">Đăng nhập</string>
-    <string name="txtUserNameLogin">Tên đăng nhập</string>
-    <string name="txtPassWordLogin">Mật khẩu</string>
-<string name="btnLogin">Đăng nhập</string>
-</resources>
