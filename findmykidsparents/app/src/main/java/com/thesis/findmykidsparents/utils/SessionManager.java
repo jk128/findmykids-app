@@ -42,7 +42,7 @@ public class SessionManager {
     public void createLoginSession(AuthLogged authLogged) {
         editor.putBoolean(IS_LOGIN, authLogged.authenticated);
         editor.putString(KEY_ID, authLogged.id);
-        editor.putString(KEY_NAME, authLogged.name);
+//        editor.putString(KEY_NAME, authLogged.name);
         editor.putString(KEY_AccessToken, authLogged.accessToken);
         editor.putString(KEY_RefreshToken, authLogged.refreshToken);
 

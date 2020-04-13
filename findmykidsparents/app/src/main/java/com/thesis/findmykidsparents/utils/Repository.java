@@ -4,6 +4,7 @@ import com.thesis.findmykidsparents.entity.Auth;
 import com.thesis.findmykidsparents.entity.AuthLogged;
 import com.thesis.findmykidsparents.entity.Children;
 import com.thesis.findmykidsparents.entity.MemberLocation;
+import com.thesis.findmykidsparents.entity.Parent;
 
 import java.util.ArrayList;
 
@@ -15,6 +16,15 @@ public class Repository {
 
     public Repository(ApiCallInterface apiCallInterface) {
         this.apiCallInterface = apiCallInterface;
+    }
+
+    public Observable<Parent> executeRegisterLogin(String email, String passWord) {
+        return this.apiCallInterface.registerLogin(new Parent(email, passWord));
+    }
+
+    public Observable<AuthLogged> executeLoginFinish(String email, String passWord) {
+        // `Bearer
+        return this.apiCallInterface.loginFinish(Urls.LOGIN_FINISH, new Parent(email, passWord));
     }
 
     public Observable<AuthLogged> executeLogin(String email, String passWord) {

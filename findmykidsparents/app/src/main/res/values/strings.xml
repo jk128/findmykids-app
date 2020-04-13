@@ -13,12 +13,12 @@
     <string name="cat_textfield_password" translatable="false">Mật khẩu</string>
     <string name="cat_textfield_email" translatable="false">Email</string>
 
-    <string name="required_email_error" translatable="false">Email bắt buộc nhập</string>
-    <string name="valid_email_error" translatable="false">Email không đúng định dạng</string>
-    <string name="required_password_error" translatable="false">Mật khẩu bắt buộc nhập</string>
+    <string name="required_email_error" translatable="false">Email bắt buộc nhập!</string>
+    <string name="valid_email_error" translatable="false">Email không hợp lệ!</string>
+    <string name="required_password_error" translatable="false">Mật khẩu bắt buộc nhập!</string>
     <string name="process">Đang xử lý...</string>
 
-    <string name="cat_login" translatable="false">Đăng nhập</string>
+    <string name="cat_login" translatable="false">Tiếp tục</string>
     <string name="cat_gen_password" translatable="false">Tạo mật khẩu kết nối</string>
 
     <string name="cat_bottom_nav_page_1_name">Page 1</string>

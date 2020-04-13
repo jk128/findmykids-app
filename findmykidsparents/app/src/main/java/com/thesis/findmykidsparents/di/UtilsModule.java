@@ -35,7 +35,6 @@ public class UtilsModule {
     @Provides
     @Singleton
     Retrofit provideRetrofit(Gson gson, OkHttpClient okHttpClient) {
-
         return new Retrofit.Builder()
                 .baseUrl(Urls.BASE_URL)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
@@ -53,19 +52,23 @@ public class UtilsModule {
     @Provides
     @Singleton
     OkHttpClient getRequestHeader() {
-
         OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
+        HttpInterceptor httpInterceptor = new HttpInterceptor(null, httpClient.build());
 
-        httpClient.addInterceptor(chain -> {
-            Request original = chain.request();
-            Request request = original.newBuilder()
-                    .build();
-            return chain.proceed(request);
-        })
+//        httpClient.addInterceptor(chain -> {
+//            Request original = chain.request();
+//            Request request = original.newBuilder()
+//                    .build();
+//            return chain.proceed(request);
+//        })
+//                .connectTimeout(100, TimeUnit.SECONDS)
+//                .writeTimeout(100, TimeUnit.SECONDS)
+//                .readTimeout(300, TimeUnit.SECONDS);
+
+        httpClient.addInterceptor(httpInterceptor)
                 .connectTimeout(100, TimeUnit.SECONDS)
                 .writeTimeout(100, TimeUnit.SECONDS)
                 .readTimeout(300, TimeUnit.SECONDS);
-
         return httpClient.build();
     }
 

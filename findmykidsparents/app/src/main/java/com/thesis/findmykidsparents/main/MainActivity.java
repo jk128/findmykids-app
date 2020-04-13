@@ -79,6 +79,11 @@ public class MainActivity extends AppCompatActivity implements ChildrenListener 
                 new BottomNavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                        if (item.getItemId() == R.id.action_search) {
+                            session.logoutUser();
+                            return true;
+                        }
+
                         progressDialog.show();
                         final int previousItem = bottomNavigationView.getSelectedItemId();
                         final int nextItem = item.getItemId();

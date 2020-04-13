@@ -4,6 +4,7 @@ import com.thesis.findmykidsparents.entity.Auth;
 import com.thesis.findmykidsparents.entity.AuthLogged;
 import com.thesis.findmykidsparents.entity.Children;
 import com.thesis.findmykidsparents.entity.MemberLocation;
+import com.thesis.findmykidsparents.entity.Parent;
 
 import java.util.ArrayList;
 
@@ -15,9 +16,13 @@ import retrofit2.http.Path;
 import retrofit2.http.Url;
 
 public interface ApiCallInterface {
+    @POST(Urls.REGISTER_LOGIN)
+    Observable<Parent> registerLogin(@Body Parent parent);
+    @POST
+    Observable<AuthLogged> loginFinish(@Url String url, @Body Parent parent);
+
     @POST(Urls.LOGIN)
     Observable<AuthLogged> login(@Body Auth auth);
-
     @GET
     Observable<MemberLocation> getLocation(@Url String url);
 

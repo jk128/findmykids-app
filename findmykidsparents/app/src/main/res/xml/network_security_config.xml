@@ -8,5 +8,7 @@
         <domain includeSubdomains="true">http://18.136.123.250:5000</domain>
         <domain includeSubdomains="true">http://54.169.14.7:5000</domain>
         <domain includeSubdomains="true">http://18.140.69.181:5000</domain>
+        <domain includeSubdomains="true">http://192.168.1.117:5010</domain>
+        <domain includeSubdomains="true">http://192.168.1.117:5012</domain>
     </domain-config>
 </network-security-config>

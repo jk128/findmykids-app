@@ -5,8 +5,8 @@ import com.google.gson.annotations.SerializedName;
 public class AuthLogged {
     @SerializedName("id")
     public String id;
-    @SerializedName("name")
-    public String name;
+//    @SerializedName("name")
+//    public String name;
     @SerializedName("authenticated")
     public Boolean authenticated;
     @SerializedName("accessToken")

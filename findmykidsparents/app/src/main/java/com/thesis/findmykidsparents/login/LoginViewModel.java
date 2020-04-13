@@ -26,8 +26,22 @@ public class LoginViewModel extends ViewModel {
     /*
      * method to call normal login api with $(email + password)
      * */
-    public void hitLoginApi(String email, String passWord) {
-        disposables.add(repository.executeLogin(email, passWord)
+    public void hitRegisterLoginApi(String email, String passWord) {
+        disposables.add(repository.executeRegisterLogin(email, passWord)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnSubscribe((d) -> responseLiveData.setValue(ApiResponse.loading()))
+                .subscribe(
+                        result -> responseLiveData.setValue(ApiResponse.success(result)),
+                        throwable -> responseLiveData.setValue(ApiResponse.error(throwable))
+                ));
+    }
+
+    /*
+     * method to call normal login api with $(email + password)
+     * */
+    public void hitLoginFinishApi(String email, String passWord) {
+        disposables.add(repository.executeLoginFinish(email, passWord)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe((d) -> responseLiveData.setValue(ApiResponse.loading()))

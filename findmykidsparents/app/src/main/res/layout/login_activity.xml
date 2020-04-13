@@ -7,6 +7,25 @@
     android:layout_margin="@dimen/cat_textfield_standard_spacing"
     android:orientation="vertical">
 
+    <TextView
+        android:id="@+id/txtShowEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#e83e8c"
+        android:textSize="18sp"
+        android:textAlignment="center"
+        android:text="Hãy nhập địa chỉ email để nhận mật khẩu đăng nhập qua email" />
+
+    <TextView
+        android:id="@+id/txtShowPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#e83e8c"
+        android:visibility="gone"
+        android:textSize="18sp"
+        android:textAlignment="center"
+        android:text="Hãy nhập mật khẩu" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/email_layout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -18,11 +37,13 @@
         app:errorEnabled="true"
         app:helperText="@string/required_email_error"
         app:helperTextEnabled="true"
+
         android:inputType="textEmailAddress"
         app:placeholderText="@string/cat_textfield_email">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/email"
+            android:maxLength="254"
             android:layout_width="match_parent"
             android:singleLine="true"
             android:layout_height="wrap_content" />
@@ -35,7 +56,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
         android:hint="@string/cat_textfield_password"
-        app:endIconMode="password_toggle"
+        android:visibility="gone"
         app:errorEnabled="true"
         app:helperText="@string/required_password_error"
         app:helperTextEnabled="true"
@@ -45,15 +66,28 @@
             android:id="@+id/passWord"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword" />
+            android:maxLength="4"
+            android:singleLine="true" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
-        android:id="@+id/login"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/cat_textfield_standard_spacing"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/cat_login" />
+        android:layout_margin="4dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/cat_textfield_standard_spacing"
+            android:text="@string/cat_login" />
+
+        <Button
+            android:id="@+id/reEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nhập lại email" />
+    </LinearLayout>
 
 </LinearLayout>
