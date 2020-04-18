@@ -21,19 +21,30 @@ public class SessionManager {
 
     private static final String IS_LOGIN = "authenticated";
     // Shared Preferences
-    SharedPreferences pref;
+    private static SharedPreferences pref;
     // Editor for Shared preferences
-    Editor editor;
+    private static Editor editor;
     // Context
-    Context _context;
+    private static Context _context;
     // Shared pref mode
-    int PRIVATE_MODE = 0;
+    private static int PRIVATE_MODE = 0;
+
+    private static SessionManager instance;
 
     // Constructor
-    public SessionManager(Context context) {
-        this._context = context;
-        pref = _context.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
-        editor = pref.edit();
+    private SessionManager() {
+
+    }
+
+    public static SessionManager getInstance(Context context) {
+        if (instance == null) {
+            _context = context;
+            pref = _context.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
+            editor = pref.edit();
+            instance = new SessionManager();
+        }
+
+        return instance;
     }
 
     /**
@@ -42,8 +53,8 @@ public class SessionManager {
     public void createLoginSession(AuthLogged authLogged) {
         editor.putBoolean(IS_LOGIN, authLogged.authenticated);
         editor.putString(KEY_ID, authLogged.id);
-//        editor.putString(KEY_NAME, authLogged.name);
         editor.putString(KEY_AccessToken, authLogged.accessToken);
+        //editor.putString(KEY_AccessToken, "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImxlYW5oY250dEBnbWFpbC5jb20iLCJyb2xlIjoiVXNlciIsIm5iZiI6MTU4Njc5ODM3OCwiZXhwIjoxNTg2Nzk4NTU4LCJpYXQiOjE1ODY3OTgzNzh9.bzYVYGcikkjEDvc513awOp8cXLKu9eqiIrZXnblGBNM");
         editor.putString(KEY_RefreshToken, authLogged.refreshToken);
 
         // commit changes

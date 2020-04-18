@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements ChildrenListener 
         setContentView(R.layout.main_activity);
 
         // Session class instance
-        session = new SessionManager(getApplicationContext());
+        session = SessionManager.getInstance(getApplicationContext());
 
         progressDialog = Constant.getProgressDialog(this, getString(R.string.process));
 
@@ -80,6 +80,7 @@ public class MainActivity extends AppCompatActivity implements ChildrenListener 
                     @Override
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                         if (item.getItemId() == R.id.action_search) {
+                            //viewModel.hitTestApi();
                             session.logoutUser();
                             return true;
                         }
@@ -119,30 +120,24 @@ public class MainActivity extends AppCompatActivity implements ChildrenListener 
     }
 
     private void consumeResponse(ApiResponse apiResponse) {
-
         switch (apiResponse.status) {
-
             case LOADING:
                 progressDialog.show();
                 break;
-
             case SUCCESS:
                 progressDialog.dismiss();
                 renderSuccessResponse((Auth) apiResponse.data);
                 break;
-
             case ERROR:
                 progressDialog.dismiss();
                 Toast.makeText(MainActivity.this, getResources().getString(R.string.errorString), Toast.LENGTH_SHORT).show();
                 break;
-
             default:
                 break;
         }
     }
 
     private void renderSuccessResponse(Auth response) {
-
     }
 
     @Override

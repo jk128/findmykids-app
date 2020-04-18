@@ -68,7 +68,7 @@ public class LoginActivity extends AppCompatActivity {
         progressDialog = Constant.getProgressDialog(this, getString(R.string.process));
 
         // Session Manager
-        session = new SessionManager(getApplicationContext());
+        session = SessionManager.getInstance(null);
 
         ButterKnife.bind(this);
         ((MyApplication) getApplication()).getAppComponent().doInjection(this);

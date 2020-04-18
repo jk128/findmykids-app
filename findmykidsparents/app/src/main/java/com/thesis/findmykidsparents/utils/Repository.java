@@ -23,8 +23,11 @@ public class Repository {
     }
 
     public Observable<AuthLogged> executeLoginFinish(String email, String passWord) {
-        // `Bearer
         return this.apiCallInterface.loginFinish(Urls.LOGIN_FINISH, new Parent(email, passWord));
+    }
+
+    public Observable<AuthLogged> executeTest() {
+        return this.apiCallInterface.test("http://192.168.1.117:5012/api/account/testAuth");
     }
 
     public Observable<AuthLogged> executeLogin(String email, String passWord) {

@@ -29,7 +29,7 @@ public class ChildrenViewModel extends ViewModel {
 
     public void setContext(Context context) {
         this.context = context;
-        session = new SessionManager(context);
+        session = SessionManager.getInstance(null);
     }
 
     public MutableLiveData<ApiResponse> childrenResponse() {

@@ -53,7 +53,7 @@ public class UtilsModule {
     @Singleton
     OkHttpClient getRequestHeader() {
         OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
-        HttpInterceptor httpInterceptor = new HttpInterceptor(null, httpClient.build());
+        HttpInterceptor httpInterceptor = new HttpInterceptor(httpClient.build());
 
 //        httpClient.addInterceptor(chain -> {
 //            Request original = chain.request();

@@ -26,8 +26,8 @@ public class HttpInterceptor implements Interceptor {
     SessionManager sessionManager;
     OkHttpClient httpClient;
 
-    public HttpInterceptor(Context ctx, OkHttpClient httpClient) {
-        this.sessionManager = new SessionManager(ctx);
+    public HttpInterceptor(OkHttpClient httpClient) {
+        this.sessionManager = SessionManager.getInstance(null);
         this.httpClient = httpClient;
     }
 
@@ -100,7 +100,7 @@ public class HttpInterceptor implements Interceptor {
 
         int responseCode = urlConnection.getResponseCode();
 
-        if (responseCode == 200) {
+        if (responseCode == 201) {
             BufferedReader in =
                     new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
             String inputLine;

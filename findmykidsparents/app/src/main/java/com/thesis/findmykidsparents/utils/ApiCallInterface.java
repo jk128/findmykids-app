@@ -20,6 +20,8 @@ public interface ApiCallInterface {
     Observable<Parent> registerLogin(@Body Parent parent);
     @POST
     Observable<AuthLogged> loginFinish(@Url String url, @Body Parent parent);
+    @GET
+    Observable<AuthLogged> test(@Url String url);
 
     @POST(Urls.LOGIN)
     Observable<AuthLogged> login(@Body Auth auth);
